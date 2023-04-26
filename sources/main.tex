@@ -1,0 +1,274 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{amsmath}
+
+\usepackage{pgfplots}
+\usepackage{sagetex}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{polar}
+\pgfplotsset{compat=newest}
+
+\usepackage{multienum}
+\usepackage{geometry}
+\geometry{
+    left=1cm,right=1cm,top=2cm,bottom=2cm
+}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+
+\DeclareMathOperator{\sign}{sign}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks, citecolor=black, filecolor=black, linkcolor=black, urlcolor=black
+}
+
+\title{Высшая математика}
+\author{Лисид Лаконский}
+\date{April 2023}
+
+\begin{document}
+\raggedright
+
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Ряды, вариант №21}
+
+\subsection{Задание №1}
+
+Исследовать ряд на сходимость.
+
+$$
+\sum\limits_{n = 0}^{\infty} \frac{1}{n^{10} + 9}
+$$
+
+\textbf{Решение.}
+
+$\sum\limits_{n = 0}^{\infty} \frac{1}{n^{10} + 9} \sim \sum\limits_{n = 0}^{\infty} \frac{1}{n^{10}}$ — эталонный ряд
+
+Степень при $n$ больше единицы — следовательно, ряд сходится.
+
+\hfill
+
+\textbf{Ответ:} ряд сходится
+
+\subsection{Задание №2}
+
+Исследовать ряд на сходимость.
+
+$$
+\sum\limits_{n = 2}^{\infty} \frac{\sqrt[4]{n^2 + 1}}{n^3 - 1}
+$$
+
+\textbf{Решение.}
+
+Более большой ряд: $\sum\limits_{n = 2}^{\infty} \frac{n^{1/2}}{n^2} = \sum\limits_{n = 2}^{\infty} \frac{1}{n^{3/2}}$ — эталонный ряд, сходящийся
+
+По признаку сравнения из сходимости большего ряда следует сходимость более маленького ряда, следовательно, исходный ряд сходится.
+
+\hfill
+
+\textbf{Ответ:} ряд сходится
+
+\subsection{Задание №3}
+
+Исследовать ряд на сходимость.
+
+$$
+\sum\limits_{n = 0}^{\infty} \frac{(n + 5)^8}{(n + 7)^7}
+$$
+
+\textbf{Решение.}
+
+$\lim\limits_{n \to \infty} \frac{(n + 5)^8}{(n + 7)^7} = \infty$ — необходимый признак сходимости не выполнен, следовательно, ряд расходится
+
+\hfill
+
+\textbf{Ответ:} ряд расходится
+
+\subsection{Задание №4}
+
+Исследовать ряд на сходимость.
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{n^2}{(n!)^4}
+$$
+
+\textbf{Решение.}
+
+$\lim\limits_{n \to \infty} (\frac{(n + 1)^2}{(n! * (n + 1))^4} * \frac{(n!)^4}{n^2}) = \lim\limits_{n \to \infty} \frac{(n + 1)^2}{(n + 1)^4 * n^2} = \lim\limits_{n \to \infty} \frac{1}{(n + 1)^2 * n^2} = 0$
+
+По признаку Д'Аламбера, ряд является сходящимся
+
+\hfill
+
+\textbf{Ответ: } ряд сходится
+
+\subsection{Задание №5}
+
+Исследовать ряд на сходимость (абсолютную и условную).
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n} n}{n + 7}
+$$
+
+\textbf{Решение.}
+
+Проверим абсолютную сходимость, для этого исследуем ряд $\sum\limits_{n = 1}^{\infty} \frac{n}{n + 7}$ на сходимость.
+
+$\lim\limits_{n \to \infty} \frac{n}{n + 7} = 1$ — не выполнен необходимый признак сходимости, следовательно, исходный ряд не является абсолютно сходящимся
+
+\hfill
+
+Проверим условную сходимость.
+
+Проверим выполнение первого условия теоремы Лейбница:
+$\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n} n}{n + 7} = -\frac{1}{8} + \frac{2}{9} - \frac{3}{10}$ — условие выполняется
+
+Проверим выполнение второго условия: $\lim\limits_{n \to \infty} \frac{n}{n + 7} = 1$ — условие не выполняется, ряд не является условную сходящимся по теореме Лейбница
+
+\hfill
+
+\textbf{Ответ:} ряд не сходится ни абсолютно, ни условно
+
+\subsection{Задание №6}
+
+Исследовать ряд на сходимость (абсолютную и условную)
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n}}{\sqrt[4]{n^3 + 2}}
+$$
+
+\textbf{Решение.}
+
+Проверим абсолютную сходимость, для этого исследуем ряд $\sum\limits_{n = 1}^{\infty} \frac{1}{\sqrt[4]{n^3 + 2}}$ на сходимость.
+
+Пусть $f(x) = \frac{1}{\sqrt[4]{n^3 + 2}}$.
+
+$\int\limits_{1}^{\infty} (\frac{1}{\sqrt[4]{n^3 + 2}}) \diff n = \infty$ — интеграл расходится, следовательно, ряд тоже является расходящимся, согласно интегральному признаку Коши
+
+\hfill
+
+Проверим выполнение первого условия теоремы Лейбница:
+$\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n}}{\sqrt[4]{n^3 + 2}} = - \frac{1}{\sqrt[4]{3}} + \frac{1}{\sqrt[4]{10}} - \dots$ — первое условие выполняется
+
+Проверим выполнение второго условия: $\lim\limits_{n \to \infty} \frac{1}{\sqrt[4]{n^3 + 2}} = 0$ — условие выполняется, следовательно, ряд является условно сходящимся по теореме Лейбница
+
+\hfill
+
+\textbf{Ответ:} ряд не сходится абсолютно, но сходится условно
+
+\subsection{Задание №7}
+
+Исследовать ряд на сходимость (абсолютную и условную).
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n}}{n^3 + n}
+$$
+
+\textbf{Решение.}
+
+Проверим абсолютную сходимость.
+
+Введем $f(x) = \frac{1}{x^3 + x}$
+
+$\int\limits_{1}^{\infty} \frac{1}{x^3 + x} \diff x = \int\limits_{1}^{\infty} (\frac{1}{x} - \frac{x}{x^2 + 1}) \diff x = \lim\limits_{\beta \to \infty} (\ln x - \frac{1}{2} \ln (x^2 + 1)) \bigg|_{1}^{\beta} = \frac{\ln 2}{2}$ — ряд сходится абсолютно, так как сходится интеграл, согласно интегральному признаку Коши
+
+\hfill
+
+Проверим условную сходимость.
+
+Первое условие теоремы Лейбница выполняется — каждый последующий член по модулю меньше предыдущего.
+
+$\lim\limits_{x \to \infty} \frac{1}{x^3 + x} = 0$ — второе условие теоремы Лейбница выполняется.
+
+Следовательно, ряд сходится условно
+
+\hfill
+
+\textbf{Ответ:} ряд сходится и абсолютно, и условно
+
+\subsection{Задание №8}
+
+Исследовать ряд на сходимость (абсолютную и условную)
+
+$$
+\sum\limits_{n = 2}^{\infty} \frac{(-1)^{n}}{n - 2 \ln n}
+$$
+
+\textbf{Решение.}
+
+Проверим абсолютную сходимость. Для этого исследуем на сходимость ряд $\sum\limits_{n = 2}^{\infty} \frac{1}{n - 2 \ln n}$
+
+Более маленький ряд: $\sum\limits_{n = 2}^{\infty} \frac{1}{n}$ — эталонный ряд, расходится.
+
+Так как более маленький ряд расходится, то, согласно признаку сравнения, данный ряд тоже расходится.
+
+То есть, исходный ряд не сходится абсолютно.
+
+\hfill
+
+Проверим условную сходимость.
+
+$\sum\limits_{n = 2}^{\infty} \frac{(-1)^{n}}{n - 2 \ln n} = -\frac{1}{2 - 2 \ln 2} + \frac{1}{3 - 2 \ln 3} - \frac{1}{4 - 2 \ln 4}$.
+
+Видим, что первое условие теоремы Лейбница выполняется.
+
+$\lim\limits_{n \to \infty} \frac{1}{n - 2 \ln n} = 0$ — второе условие теоремы Лейбница выполняется.
+
+То есть, исходный ряд сходится условно.
+
+\hfill
+
+\textbf{Ответ:} ряд не сходится абсолютно, но сходится условно.
+
+\subsection{Задание №9}
+
+Найти область сходимости функционального ряда.
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{1}{n^3 + x^2}
+$$
+
+\textbf{Решение.}
+
+$\lim\limits_{n \to \infty} | \frac{u_{n + 1} (x)}{u_{n} (x)} | = \lim\limits_{n \to \infty} \frac{n^3 + x^2}{(n + 1)^3 + x^2} = \lim\limits_{n \to \infty} \frac{n^3 + x^2}{n^3 + 3n^2 + 3n + 1 + x^2} = \lim\limits_{n \to \infty} \frac{1 + \frac{x^2}{n^3}}{1 + \frac{3}{n} + \frac{3}{n^2} + \frac{1}{n^3} + \frac{x^2}{n^3}} = 1$ — признак неприменим
+
+\subsection{Задание №10}
+
+Найти область сходимости функционального ряда.
+
+$$
+\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n + 1} 2^{n} x^{2 n}}{\sqrt{n}}
+$$
+
+$\lim\limits_{n \to \infty} | \frac{u_{n + 1} (x)}{u_{n} (x)} | = \lim\limits_{n \to \infty} | \frac{2^{n + 1} x^{2 (n + 1)}}{\sqrt{n + 1}} * \frac{\sqrt{n}}{2^{n} x^{2 n}} | = \lim\limits_{n \to \infty} | \frac{2 * x^{2} * \sqrt{n}}{\sqrt{n + 1}} | = 2x^2
+$
+
+Ряд сходится при $2x^2 < 1 \Longleftrightarrow x^2 < \frac{1}{2} \Longleftrightarrow -\frac{1}{\sqrt{2}} < x < \frac{1}{\sqrt{2}}$
+
+\hfill
+
+Отдельно проверим граничные значения:
+
+$x = - \frac{1}{\sqrt{2}}$, $\sum\limits_{n = 1}^{\infty} \frac{(-1)^{n + 1} 2^{n} (-\frac{1}{\sqrt{2}})^{2 n}}{\sqrt{n}} = \sum\limits_{n = 1}^{\infty} \frac{(-1)^{n + 1} * 2^{n} * 1^{n}}{2^{n} * \sqrt{n}} = \sum\limits_{n = 1}^{\infty} \frac{(-1)^{n + 1} * 1^{n}}{\sqrt{n}} = \sum\limits_{n = 1}^{\infty} \frac{(-1)^{3 n + 1}}{\sqrt{n}}$
+
+Проверим сходимость данного ряда: $\lim\limits_{n \to \infty} \frac{(-1)^{3 (n + 1) + 1}}{\sqrt{n + 1}} * \frac{\sqrt{n}}{(-1)^{3 n + 1}} = \lim\limits_{n \to \infty} \frac{- \sqrt{n}}{\sqrt{n + 1}} = -1$ — по признаку Д'Аламбера, ряд сходится
+
+При $x = \frac{1}{\sqrt{2}}$ ряд так же сходится.
+
+\hfill
+
+\textbf{Ответ:} $-\frac{1}{\sqrt{2}} \le x \le \frac{1}{\sqrt{2}}$
+
+\end{document}
