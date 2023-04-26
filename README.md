@@ -1,1 +1,1 @@
-# higher_mathematics_studies_02
+# Ряды
